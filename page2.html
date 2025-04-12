@@ -1,1 +1,116 @@
-   
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Always Yours, Hima</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to top left, #fce4ec, #f8bbd0);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    /* Heart Pattern Background */
+    body::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background: url('https://i.imgur.com/oMmcg9s.png');
+      opacity: 0.05;
+      background-size: 80px;
+      z-index: 1;
+    }
+
+    /* Rose Petal Rain */
+    .petal {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background: url('https://i.imgur.com/ObVx5YK.png') no-repeat center;
+      background-size: contain;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-100px) rotate(0deg);
+        opacity: 0;
+      }
+      50% {
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Love Message Text */
+    .love-quote {
+      font-size: 32px;
+      font-weight: bold;
+      color: #880e4f;
+      text-align: center;
+      z-index: 2;
+      animation: fadeIn 3s ease-in-out;
+      margin-bottom: 40px;
+      padding: 0 20px;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Button */
+    .back-button {
+      background: #d81b60;
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 18px;
+      text-decoration: none;
+      border-radius: 30px;
+      box-shadow: 0 0 20px rgba(255, 105, 180, 0.5);
+      z-index: 2;
+      transition: 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: #ec407a;
+      box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="love-quote">
+    “In your smile I see something more beautiful than the stars.”
+  </div>
+
+  <a href="index.html" class="back-button">Back to You</a>
+
+  <!-- Rose Petals -->
+  <script>
+    for (let i = 0; i < 20; i++) {
+      const petal = document.createElement('div');
+      petal.classList.add('petal');
+      petal.style.left = Math.random() * 100 + "vw";
+      petal.style.animationDuration = 5 + Math.random() * 5 + "s";
+      petal.style.animationDelay = Math.random() * 5 + "s";
+      document.body.appendChild(petal);
+    }
+  </script>
+
+</body>
+</html>
